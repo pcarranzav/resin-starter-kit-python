@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Echo the syncthing ID to the terminal
-echo < syncthingID.txt
+#echo < syncthingID.txt
 /syncthing/syncthing -home="/syncthing/syncthingHome" &
 
 #Set the root password as root if not set as an ENV variable
