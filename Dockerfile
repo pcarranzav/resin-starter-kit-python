@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install dropbear
 ADD start /start
 
 RUN mkdir -p syncthing/syncthingHome
-ADD syncthing-linux-arm-v0.10.30.tar.gz /syncthing/syncthing.tar.gz
+ADD syncthing-linux-arm-v0.10.30.tar.gz /syncthing/
 RUN tar xvzf /syncthing/syncthing.tar.gz -C syncthing
 RUN /syncthing/syncthing -generate="/syncthing/syncthingHome" | grep "Device ID" > syncthingID.txt
 
