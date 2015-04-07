@@ -2,8 +2,10 @@
 
 # Echo the syncthing ID to the terminal
 #echo < syncthingID.txt
-/syncthing/syncthing -home="/syncthing/syncthingHome" &
-
+if [ ! -f /syncthing/syncthingHome/config.xml ]
+	/syncthing/syncthing -generate="/syncthing/syncthingHome" &
+	sed -i 's/127.0.0.1/0.0.0.0/g' /syncthing/syncthingHome/config.xml
+fi
 #Set the root password as root if not set as an ENV variable
 export PASSWD=${PASSWD:=root}
 #Set the root password
