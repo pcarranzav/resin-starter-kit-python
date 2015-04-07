@@ -7,8 +7,8 @@ ADD start /start
 
 RUN mkdir -p syncthing/syncthingHome
 ADD syncthing-linux-arm-v0.10.30.tar.gz /syncthing/syncthing.tar.gz
-RUN tar xvzf -C syncthing /syncthing/syncthing.tar.gz
-RUN /syncthing/syncthing -home / syncthing/syncthingHome | grep "My ID" > syncthingID.txt
+RUN tar xvzf /syncthing/syncthing.tar.gz -C syncthing
+RUN /syncthing/syncthing -generate="/syncthing/syncthingHome" | grep "Device ID" > syncthingID.txt
 
 RUN chmod a+x /start
 
