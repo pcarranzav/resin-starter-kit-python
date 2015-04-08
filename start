@@ -14,7 +14,8 @@ fi
 export PASSWD=${PASSWD:=root}
 #Set the root password
 echo "root:$PASSWD" | chpasswd
-#Spawn dropbear
-dropbear -E
 
-cd src && node index.js
+cd src && node index.js &
+
+#Spawn dropbear
+dropbear -E -F
