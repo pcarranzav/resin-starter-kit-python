@@ -2,7 +2,7 @@
 
 # Echo the syncthing ID to the terminal
 #echo < syncthingID.txt
-if [ ! -f /syncthing/syncthingHome/config.xml ] then
+if [ ! -f /syncthing/syncthingHome/config.xml ]; then
 	/syncthing/syncthing -generate="/syncthing/syncthingHome" &
 	sed -i 's/127.0.0.1/0.0.0.0/g' /syncthing/syncthingHome/config.xml
 fi
