@@ -1,5 +1,5 @@
-resin-starter-kit
-=================
+Resin Starter Kit for Python
+============================
 
 NOTE: This container enables SSH access as root with a PASSWORD stored in plain text - Do not use in production without modifications.
 
@@ -8,7 +8,9 @@ Resin container that allows to quickly get hacking on a Raspberry Pi.
 It features:
 - SSH using dropbear
 - File syncing using syncthing
-- Dependencies for node.js or Python
+- Dependencies for Python and a running Flask web server
+
+A similar container, but for node.js instead of Python, can be found [here](https://github.com/pcarranzav/resin-starter-kit-node).
 
 Usage
 ------
@@ -52,18 +54,4 @@ When you do this, the GUI on your PC will prompt you to add the device too:
 Now create the folder on the GUI on your PC, using the same ID ("src"), but point it to the src directory in this repository (e.g. "/home/user/resin-starter-kit/src").
 
 Voilà! Now every change you make on your src directory will be immediately reflected on the Pi. That way you can code and run it on the Pi, and only push to resin after adding new dependencies or making big changes.
-
-### Python or node.js
-
-This repo has dependencies installed for Python or node depending on what branch you use. Branch master has the node version, so if you want to use Python do:
-```
-git checkout python
-```
-And then to deploy with resin, instead of the default command do:
-```
-git push resin python:master
-```
-
-All sources should be put inside the src folder so that syncthing can do its thing while you're hacking.
-
  
