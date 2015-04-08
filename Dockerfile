@@ -1,8 +1,6 @@
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-node
 
-RUN apt-get update && apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup | bash -
-RUN apt-get install -y build-essential nodejs dropbear
+RUN apt-get update && apt-get install -y dropbear
 
 ADD start /start
 ADD src/ /src
