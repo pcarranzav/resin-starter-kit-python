@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian
 
-RUN apt-get update && apt-get install -y dropbear usbutils wireless-tools python python-dev python-pip
+RUN apt-get update && apt-get install -y dropbear usbutils wireless-tools python python-dev python-pip sudo
 
 ADD start /start
 ADD src/ /src
