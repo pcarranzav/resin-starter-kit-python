@@ -14,4 +14,4 @@ RUN chmod a+x /start
 
 EXPOSE 8080
 
-CMD /start
+CMD bash /start
