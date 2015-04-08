@@ -2,14 +2,19 @@
 
 # Echo the syncthing ID to the terminal
 #echo < syncthingID.txt
-if [ ! -f /syncthing/syncthingHome/config.xml ]; then
-	/syncthing/syncthing -generate="/syncthing/syncthingHome"
-	sed -i 's/127.0.0.1/0.0.0.0/g' /syncthing/syncthingHome/config.xml
+if [! -d /data/syncthingHome ]; then
+	mkdir -p /data/syncthingHome
 fi
-/syncthing/syncthing -home="/syncthing/syncthingHome" &
+if [ ! -f /data/syncthingHome/config.xml ]; then
+	/syncthing/syncthing -generate="/data/syncthingHome"
+	sed -i 's/127.0.0.1/0.0.0.0/g' /data/syncthingHome/config.xml
+fi
+/syncthing/syncthing -home="/data/syncthingHome" &
 #Set the root password as root if not set as an ENV variable
 export PASSWD=${PASSWD:=root}
 #Set the root password
 echo "root:$PASSWD" | chpasswd
 #Spawn dropbear
-dropbear -E -F
+dropbear -E
+
+cd src && node index.js
