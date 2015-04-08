@@ -6,7 +6,7 @@ if [ ! -f /syncthing/syncthingHome/config.xml ]; then
 	/syncthing/syncthing -generate="/syncthing/syncthingHome"
 	sed -i 's/127.0.0.1/0.0.0.0/g' /syncthing/syncthingHome/config.xml
 fi
-/syncthing/syncthing -generate="/syncthing/syncthingHome" &
+/syncthing/syncthing -home="/syncthing/syncthingHome" &
 #Set the root password as root if not set as an ENV variable
 export PASSWD=${PASSWD:=root}
 #Set the root password
