@@ -15,7 +15,7 @@ export PASSWD=${PASSWD:=root}
 #Set the root password
 echo "root:$PASSWD" | chpasswd
 
-cd src && node index.js &
+cd src && python main.py &
 
 #Spawn dropbear
 dropbear -E -F
