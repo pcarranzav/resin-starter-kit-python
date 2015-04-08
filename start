@@ -2,7 +2,7 @@
 
 # Echo the syncthing ID to the terminal
 #echo < syncthingID.txt
-if [! -d /data/syncthingHome ]; then
+if [ ! -d /data/syncthingHome ]; then
 	mkdir -p /data/syncthingHome
 fi
 if [ ! -f /data/syncthingHome/config.xml ]; then
