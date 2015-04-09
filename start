@@ -17,7 +17,5 @@ echo "root:$PASSWD" | chpasswd
 
 cd src && python main.py &
 
-sudo echo "sudo works!"
-
 #Spawn dropbear
 dropbear -E -F
